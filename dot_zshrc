@@ -1,0 +1,41 @@
+export GIT_EDITOR=vim
+export KUBE_EDITOR=vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1
+export PATH="$PATH:$HOME/.meteor:/usr/local/opt/mysql-client/bin"
+export SOPS_AGE_KEY_FILE="$HOME/.sops/age/keys.txt"
+
+source "$HOME/antigen.zsh"
+
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle vkolagotla/zsh-random-quotes
+antigen bundle b4b4r07/enhancd
+antigen theme denysdovhan/spaceship-prompt
+antigen apply
+
+SPACESHIP_GIT_BRANCH_PREFIX=""
+SPACESHIP_PROMPT_ORDER=(
+  time
+  user
+  dir
+  host
+  git
+  exec_time
+  line_sep
+  jobs
+  exit_code
+  char
+)
+
+alias p='cd ~/projects'
+
+k () { kubectl $@ }
+precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
