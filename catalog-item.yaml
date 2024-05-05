@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dotfiles
+  title: Dotfiles
+  description: Personal dotfiles for configuring Unix-like systems
+  tags:
+    - shell
+spec:
+  type: library
+  lifecycle: experimental
+  owner: johnnyhuy
